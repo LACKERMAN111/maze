@@ -15,7 +15,6 @@ class GameSprite(sprite.Sprite):
         self.rect.x = play_x
         self.rect.y = play_y
         
-    
     def reset(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
     
@@ -30,7 +29,6 @@ class Player(GameSprite):
             self.rect.x += self.speed
         if keys_ressed[K_a]and self.rect.x > 0:
             self.rect.x -= self.speed
-
 
 class Enemy(GameSprite):
 
@@ -70,7 +68,6 @@ player = Player('hero.png', 20, 50, 8)
 monster = Enemy('cyborg.png', 622, 300, 2)
 treasure = GameSprite('treasure.png', 500, 400, 0)
 
-
 background = transform.scale(image.load('background.jpg'), (win_width, win_height))
 
 mixer.init()
@@ -84,7 +81,6 @@ wall2 = Wall(10, 550, 100, 50, 32, 137, 4)
 wall3 = Wall(350, 10, 225, 150, 32, 137, 4)
 wall4 = Wall(350, 10, 335, 50, 32, 137, 4)
 wall5 = Wall(350, 10, 460, 150, 32, 137, 4)
-
 
 speed = 10
 
@@ -113,8 +109,7 @@ while game:
 
         player.update()
         monster.update()
-
-            
+   
         if sprite.collide_rect(player, treasure):
             final = True
             window.blit(win, (200, 200))
